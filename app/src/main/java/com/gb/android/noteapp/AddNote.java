@@ -6,30 +6,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
-public class DataOutputFragment extends Fragment {
+public class AddNote extends Fragment {
 
 //    Toolbar toolbar;
-//    RecyclerView recyclerView;
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
+//    EditText noteTitle, noteDetails;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 //        toolbar = toolbar.findViewById(R.id.toolbar);
-//        recyclerView = recyclerView.findViewById(R.id.listOfNotes);
-        return inflater.inflate(R.layout.fragment_data_output, container, false);
+//        noteTitle = noteTitle.findViewById(R.id.noteTitle);
+//        noteDetails = noteDetails.findViewById(R.id.noteDetails);
+
+        return inflater.inflate(R.layout.fragment_add_note, container, false);
+
     }
 
 //    @Override
@@ -37,7 +34,7 @@ public class DataOutputFragment extends Fragment {
 //        super.onViewCreated(view, savedInstanceState);
 //
 //        toolbar = toolbar.findViewById(R.id.toolbar);
-//        recyclerView = recyclerView.findViewById(R.id.listOfNotes);
-//
+//        noteTitle = noteTitle.findViewById(R.id.noteTitle);
+//        noteDetails = noteDetails.findViewById(R.id.noteDetails);
 //    }
 }
