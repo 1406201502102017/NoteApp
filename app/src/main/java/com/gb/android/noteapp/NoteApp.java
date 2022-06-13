@@ -1,4 +1,4 @@
-package com.gb.android.noteapp.homeWork;
+package com.gb.android.noteapp;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
