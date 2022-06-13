@@ -21,5 +21,4 @@
             android:id="@+id/fragment_add_note">
 
         </androidx.fragment.app.FragmentContainerView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

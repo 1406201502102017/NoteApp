@@ -41,5 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         AddNote addNote = new AddNote();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, addNote).commit();
+
     }
 }

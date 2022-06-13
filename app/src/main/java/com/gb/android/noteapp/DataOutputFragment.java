@@ -22,6 +22,7 @@ public class DataOutputFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_data_output, container, false);
     }
 
+
 //    @Override
 //    public void onViewCreated(@NonNull View view, @Nullable Bundle
 //            savedInstanceState) {

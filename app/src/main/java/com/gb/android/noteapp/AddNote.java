@@ -26,7 +26,6 @@ public class AddNote extends Fragment {
 //        noteDetails = noteDetails.findViewById(R.id.noteDetails);
 
         return inflater.inflate(R.layout.fragment_add_note, container, false);
-
     }
 
 //    @Override

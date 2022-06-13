@@ -11,6 +11,7 @@ public class Note {
     Note() {}
 
     Note(String title, String content, String date, String time) {
+
         this.title = title;
         this.content = content;
         this.date = date;
