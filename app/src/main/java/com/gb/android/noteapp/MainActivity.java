@@ -1,8 +1,11 @@
 package com.gb.android.noteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+
+import com.gb.android.noteapp.watcher.Editor;
 /*
 ДЗ №6
 1. Почитайте документацию методов requireActivity(), requireContext(), getActivity(), getContext()
@@ -16,31 +19,25 @@ import android.os.Bundle;
 6. * Разберитесь, как можно сделать, и сделайте корректировку даты создания при
 помощи DatePicker.
 */
-/*
-ДЗ №7
-1. Разберитесь в различиях между serializable и parcelable;
-2. Подумайте о функционале вашего приложения заметок. Какие экраны там могут быть, помимо
-основного со списком заметок? Не обязательно сразу пытаться реализовать весь этот
-функционал, достаточно создать макеты и структуру, а реализацию пока заменить на
-заглушки или всплывающие уведомления (Toast). Используйте подход Single Activity для
-отображения экранов.
-В качестве примера: на главном экране приложения у вас список всех заметок, при нажатии
-на заметку открывается экран с этой заметкой.
-3. * Сделайте UI более сложным, создайте начальный экран приложения с переходами на список
-городов, настройки, сведения о приложении. Добавьте в свое приложение child-фрагменты.
- */
+
 public class MainActivity extends AppCompatActivity {
+
+    private Editor editor = new Editor();
+
+    public Editor getEditor() {
+        return editor;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initToolbar();
+    }
 
-        DataOutputFragment dataOutputFragment = new DataOutputFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, dataOutputFragment).commit();
-
-        AddNote addNote = new AddNote();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, addNote).commit();
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
     }
 }
