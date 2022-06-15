@@ -1,39 +1,61 @@
 package com.gb.android.noteapp;
 
+import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.DatePicker;
+
+import com.google.android.material.textfield.TextInputEditText;
+
+
+import com.gb.android.noteapp.watcher.Editor;
+
 
 public class AddNote extends Fragment {
 
-//    Toolbar toolbar;
-//    EditText noteTitle, noteDetails;
+    private static final String ARG_CARD_DATA = "Param_Note";
+    private TextInputEditText title;
+    private TextInputEditText description;
+    private DatePicker datePicker;
+
+
+    private Note note;
+    private Editor editor;
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-//        toolbar = toolbar.findViewById(R.id.toolbar);
-//        noteTitle = noteTitle.findViewById(R.id.noteTitle);
-//        noteDetails = noteDetails.findViewById(R.id.noteDetails);
-
-        return inflater.inflate(R.layout.fragment_add_note, container, false);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        editor = ((MainActivity) context).getEditor();
     }
 
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        toolbar = toolbar.findViewById(R.id.toolbar);
-//        noteTitle = noteTitle.findViewById(R.id.noteTitle);
-//        noteDetails = noteDetails.findViewById(R.id.noteDetails);
-//    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        editor = null;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_add_note, container, false);
+        initView(view);
+        if (note != null) {
+            populateView();
+        }
+        return view;
+    }
+
+    private void populateView() {
+        title.setText(note.getTitle());
+        description.setText(note.getDescription());
+    }
+
+    private void initView(View view) {
+    }
 }
