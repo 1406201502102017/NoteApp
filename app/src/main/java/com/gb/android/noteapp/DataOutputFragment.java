@@ -1,60 +1,34 @@
 package com.gb.android.noteapp;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class DataOutputFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        MainActivity activity = (MainActivity) context;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_data_output, container, false);
+        setHasOptionsMenu(true);
+        View view = inflater.inflate(R.layout.fragment_data_output, container, false);
+        recyclerView = view.findViewById(R.id.recycler_view_lines);
+
+        return view;
     }
-
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle
-//            savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        initList(view);
-//    }
-
-//    private void initList(View view) {
-//        LinearLayout layoutView = (LinearLayout) view;
-//        String[] noteStructure = getResources().getStringArray(R.array.noteStructure);
-//
-//        //for (String structure : noteStructure)
-//        for (int i = 0; i < noteStructure.length; i++) {
-//            String structure = noteStructure[i];
-//            TextView tv = new TextView(getContext());
-//            tv.setText(structure);
-//            tv.setTextSize(20);
-//            layoutView.addView(tv);
-//            final int position = i;
-//            tv.setOnClickListener(v -> {
-//                showOpenNote(position);
-//            });
-//        }
-//    }
-
-//    private void showOpenNote(int index) {
-//        OpenNoteFragment openNoteFragment = OpenNoteFragment.newInstance(index);
-//        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add(R.id.fragment_container, openNoteFragment);
-//        fragmentTransaction.addToBackStack("");
-//        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-//        fragmentTransaction.commit();
-//    }
 }
