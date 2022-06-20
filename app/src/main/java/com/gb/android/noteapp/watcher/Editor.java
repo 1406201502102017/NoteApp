@@ -16,6 +16,7 @@ public class Editor {
     public void subscribe(Watcher watcher){
         watcherList.add(watcher);
     }
+
     public void unsubscribe(Watcher watcher){
         watcherList.remove(watcher);
     }

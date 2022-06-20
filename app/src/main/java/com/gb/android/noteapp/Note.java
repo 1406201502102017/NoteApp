@@ -103,5 +103,6 @@ public class Note implements Parcelable {
     }
 
     public void setChecked(boolean done) {
+
     }
 }

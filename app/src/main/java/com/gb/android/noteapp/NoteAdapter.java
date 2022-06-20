@@ -76,7 +76,7 @@ public class NoteAdapter
         private TextView title;
         private TextView description;
         private AppCompatImageView image;
-        private CheckBox note;
+        private CheckBox box;
         private TextView date;
 
         public ViewHolder(@NonNull View itemView) {
@@ -84,7 +84,7 @@ public class NoteAdapter
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.note_body);
             image = (AppCompatImageView) itemView.findViewById(R.id.imageView);
-            note = itemView.findViewById(R.id.done);
+            box = itemView.findViewById(R.id.done);
             date = itemView.findViewById(R.id.date);
 
             fragment.registerForContextMenu(image);
@@ -111,7 +111,7 @@ public class NoteAdapter
             title.setText(note.getTitle());
             date.setText(note.getDate().toString());
             description.setText(note.getDescription());
-            note.setChecked(note.isDone());
+            box.setChecked(note.isDone());
             image.setImageResource(note.getPicture());
         }
     }

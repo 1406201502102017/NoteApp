@@ -13,10 +13,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
-
+import com.gb.android.noteapp.R;
 import com.gb.android.noteapp.Note;
 import com.gb.android.noteapp.watcher.Editor;
 import com.gb.android.noteapp.MainActivity;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class AddNote extends Fragment {
 
@@ -25,10 +28,8 @@ public class AddNote extends Fragment {
     private TextInputEditText description;
     private DatePicker datePicker;
 
-
     private Note note;
     private Editor editor;
-
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -56,8 +57,27 @@ public class AddNote extends Fragment {
     private void populateView() {
         title.setText(note.getTitle());
         description.setText(note.getDescription());
+        initDatePicker(note.getDate());
+    }
+
+    private void initDatePicker(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        this.datePicker.init(calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH),
+                null);
+    }
+
+    private Date getDateFromDatePicker() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, this.datePicker.getYear());
+        cal.set(Calendar.MONTH, this.datePicker.getMonth());
+        cal.set(Calendar.DAY_OF_MONTH, this.datePicker.getDayOfMonth());
+        return cal.getTime();
     }
 
     private void initView(View view) {
+
     }
 }

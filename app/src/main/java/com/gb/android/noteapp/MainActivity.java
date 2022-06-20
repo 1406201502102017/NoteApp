@@ -6,23 +6,23 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
+//import com.gb.android.noteapp.DataOutputFragment;
 import com.gb.android.noteapp.watcher.Editor;
 
 import java.util.Objects;
 /*
-ДЗ №8
-1. Подумайте о функционале вашего приложения заметок. Какие экраны там могут быть, помимо основного со списком заметок? Как можно использовать меню и боковое меню в вашем приложении? Не обязательно сразу пытаться реализовать весь этот функционал, достаточно создать макеты и структуру, а реализацию пока заменить на заглушки. Используйте подход Single Activity для отображения экранов.
-2. В качестве примера: на главном экране приложения у вас список всех заметок, при нажатии на заметку открывается экран с этой заметкой. В меню главного экрана у вас есть иконка поиска по заметкам и сортировка. В меню «Заметки» у вас есть иконки «Переслать» (или «Поделиться»), «Добавить ссылку или фотографию к заметке».
-3. Создайте боковое навигационное меню для своего приложения и добавьте туда хотя бы один экран, например «Настройки» или «О приложении».
-4. * Создайте полноценный заголовок для NavigationDrawer’а. К примеру, аватарка пользователя, его имя и какая-то дополнительная информация.
-5. * Изучите context menu
+ДЗ №9
+1. Используйте уведомления или диалоговые окна в своем приложении. К примеру, перед выходом
+из приложения уточните у пользователя в диалоговом окне, действительно ли он хочет это сделать.
+И отображайте Toast при закрытии приложения.
+2. * Возвращайте данные из диалога в активити через интерфейс, но не передавая интерфейс
+через отдельный метод фрагмента, а приводя контекст к типу этого интерфейса.
  */
 
+public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private Editor editor = new Editor();
+    private final Editor editor = new Editor();
+    private Navigator navigator;
 
     public Editor getEditor() {
         return editor;
@@ -32,22 +32,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        navigator = new Navigator(getSupportFragmentManager());
         initToolbar();
-        getSupportFragmentManager().addOnBackStackChangedListener((FragmentManager.OnBackStackChangedListener) this);
+        navigator.addFragment(DataOutputFragment.newInstance(), false);
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
 
     public void onBackStackChanged() {
-
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        } else {
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
-        }
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(getSupportFragmentManager().getBackStackEntryCount() > 0);
     }
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    public Navigator getNavigator() {
+        return navigator;
     }
 }

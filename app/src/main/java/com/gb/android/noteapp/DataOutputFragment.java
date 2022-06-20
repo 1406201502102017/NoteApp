@@ -1,6 +1,7 @@
 package com.gb.android.noteapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,14 +13,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gb.android.noteapp.MainActivity;
+import com.gb.android.noteapp.Navigator;
+import com.gb.android.noteapp.R;
+import com.gb.android.noteapp.Note;
+import com.gb.android.noteapp.NoteSource;
+import com.gb.android.noteapp.watcher.Editor;
+import com.gb.android.noteapp.watcher.Watcher;
+
 public class DataOutputFragment extends Fragment {
 
+    private NoteSource data;
+    private NoteAdapter adapter;
     private RecyclerView recyclerView;
+
+    private Navigator navigator;
+    private Editor editor;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         MainActivity activity = (MainActivity) context;
+        navigator = activity.getNavigator();
+        editor = activity.getEditor();
+    }
+
+    @Override
+    public void onDetach() {
+        navigator = null;
+        editor = null;
+        super.onDetach();
+    }
+
+    public static DataOutputFragment newInstance() {
+        return new DataOutputFragment();
     }
 
     @Override
@@ -28,8 +55,19 @@ public class DataOutputFragment extends Fragment {
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_data_output, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_lines);
+        initRecyclerView(recyclerView, data);
 
+        adapter.setDataSource(data);
         return view;
     }
 
+    private void initRecyclerView(RecyclerView recyclerView, NoteSource data) {
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new NoteAdapter(this);
+        recyclerView.setAdapter(adapter);
+    }
 }
