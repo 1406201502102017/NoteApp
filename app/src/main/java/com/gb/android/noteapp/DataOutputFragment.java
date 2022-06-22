@@ -1,25 +1,17 @@
 package com.gb.android.noteapp;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.gb.android.noteapp.MainActivity;
-import com.gb.android.noteapp.Navigator;
-import com.gb.android.noteapp.R;
-import com.gb.android.noteapp.Note;
-import com.gb.android.noteapp.NoteSource;
 import com.gb.android.noteapp.watcher.Editor;
-import com.gb.android.noteapp.watcher.Watcher;
 
 public class DataOutputFragment extends Fragment {
 
@@ -56,6 +48,13 @@ public class DataOutputFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_data_output, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_lines);
         initRecyclerView(recyclerView, data);
+
+        if (false) {
+            data = new NoteSourceLocalImpl(getResources()).init((NoteSourceResponse) notesSource -> {
+            });
+        } else {
+            data = new NoteSourceRemoteImpl().init((NoteSourceResponse) notesSource -> adapter.notifyDataSetChanged());
+        }
 
         adapter.setDataSource(data);
         return view;

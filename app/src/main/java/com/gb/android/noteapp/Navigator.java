@@ -15,7 +15,7 @@ public class Navigator {
     public void addFragment(Fragment fragment, boolean useBackStack){
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container,fragment);
-        if(useBackStack){
+        if(useBackStack) {
             fragmentTransaction.addToBackStack("");
         }
         fragmentTransaction.commit();

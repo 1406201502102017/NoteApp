@@ -13,10 +13,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gb.android.noteapp.R;
-import com.gb.android.noteapp.Note;
-import com.gb.android.noteapp.NoteSource;
-
 public class NoteAdapter
         extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
@@ -73,11 +69,11 @@ public class NoteAdapter
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private TextView description;
-        private AppCompatImageView image;
-        private CheckBox box;
-        private TextView date;
+        private final TextView title;
+        private final TextView description;
+        private final AppCompatImageView image;
+        private final CheckBox box;
+        private final TextView date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,21 +85,15 @@ public class NoteAdapter
 
             fragment.registerForContextMenu(image);
 
-            image.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (itemClickListener != null) {
-                        itemClickListener.onItemClick(v, getAdapterPosition());
-                    }
+            image.setOnClickListener(v -> {
+                if (itemClickListener != null) {
+                    itemClickListener.onItemClick(v, getAdapterPosition());
                 }
             });
-            image.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    menuContextClickPosition = getAdapterPosition();
-                    itemView.showContextMenu();
-                    return false;
-                }
+            image.setOnLongClickListener(view -> {
+                menuContextClickPosition = getAdapterPosition();
+                itemView.showContextMenu();
+                return false;
             });
         }
 

@@ -49,4 +49,5 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>
