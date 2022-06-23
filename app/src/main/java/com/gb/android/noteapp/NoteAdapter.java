@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NoteAdapter
         extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
-
     private final static String TAG = "SocialNetworkAdapter";
 
     @SuppressLint("NotifyDataSetChanged")

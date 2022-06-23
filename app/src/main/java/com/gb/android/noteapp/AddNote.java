@@ -18,7 +18,6 @@ import java.util.Date;
 import java.util.Objects;
 
 public class AddNote extends Fragment {
-
     private static final String ARG_CARD_DATA = "Param_Note";
     private TextInputEditText title;
     private TextInputEditText description;

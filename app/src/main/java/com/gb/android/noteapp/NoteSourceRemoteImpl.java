@@ -15,7 +15,7 @@ import com.google.firebase.firestore.Source;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteSourceRemoteImpl implements NoteSourse {
+public class NoteSourceRemoteImpl implements NoteSource {
 
     private static String NOTES_COLLECTION = "cards";
     private FirebaseFirestore store = FirebaseFirestore.getInstance();

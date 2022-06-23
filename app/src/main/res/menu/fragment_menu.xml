@@ -12,5 +12,4 @@
         android:orderInCategory="0"
         android:title="@string/text_clear"
         app:showAsAction="never" />
-
 </menu>

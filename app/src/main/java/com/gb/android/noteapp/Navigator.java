@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class Navigator {
-
     private final FragmentManager fragmentManager;
 
     public Navigator(FragmentManager fragmentManager) {

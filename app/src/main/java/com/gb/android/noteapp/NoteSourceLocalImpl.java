@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.List;
 
 public class NoteSourceLocalImpl implements NoteSource {
-
     private List<Note> dataSource;
     private Resources resources;    // ресурсы приложения
 

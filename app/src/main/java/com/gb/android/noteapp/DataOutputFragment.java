@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gb.android.noteapp.watcher.Editor;
 
 public class DataOutputFragment extends Fragment {
-
     private NoteSource data;
     private NoteAdapter adapter;
     private RecyclerView recyclerView;

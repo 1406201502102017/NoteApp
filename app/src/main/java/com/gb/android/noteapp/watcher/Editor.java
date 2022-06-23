@@ -27,5 +27,4 @@ public class Editor {
             unsubscribe(watcher);
         }
     }
-
 }

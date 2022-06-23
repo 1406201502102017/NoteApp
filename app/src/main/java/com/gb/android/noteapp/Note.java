@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import java.util.Date;
 
 public class Note implements Parcelable {
-
     public String getId() {
         return id;
     }
