@@ -10,7 +10,7 @@ public class Editor {
     private final List<Watcher> watcherList;
 
     public Editor() {
-        this.watcherList = new ArrayList<Watcher>();
+        this.watcherList = new ArrayList<>();
     }
 
     public void subscribe(Watcher watcher){

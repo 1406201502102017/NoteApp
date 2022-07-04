@@ -1,5 +1,6 @@
 package com.gb.android.noteapp;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 
@@ -8,8 +9,9 @@ import java.util.Calendar;
 import java.util.List;
 
 public class NoteSourceLocalImpl implements NoteSource {
-    private List<Note> dataSource;
-    private Resources resources;    // ресурсы приложения
+
+    private final List<Note> dataSource;
+    private final Resources resources;    // ресурсы приложения
 
     public NoteSourceLocalImpl(Resources resources) {
         dataSource = new ArrayList<>(7);
@@ -32,7 +34,7 @@ public class NoteSourceLocalImpl implements NoteSource {
     }
 
     private int[] getImageArray(){
-        TypedArray pictures = resources.obtainTypedArray(R.array.pictures);
+        @SuppressLint("Recycle") TypedArray pictures = resources.obtainTypedArray(R.array.pictures);
         int length = pictures.length();
         int[] answer = new int[length];
         for(int i = 0; i < length; i++){

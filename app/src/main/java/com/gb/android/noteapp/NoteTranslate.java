@@ -17,6 +17,7 @@ public class NoteTranslate {
     }
 
     public static Note documentToCardData(String id, Map<String,Object> doc){
+
         Note answer = new Note(
                 (String) doc.get(Fields.TITLE),
                 (String) doc.get(Fields.DESCRIPTION),

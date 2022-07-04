@@ -2,8 +2,6 @@ package com.gb.android.noteapp;
 
 import java.util.Random;
 
-import com.gb.android.noteapp.R;
-
 public class ImageConverterIndex {
 
     private static final Random rnd = new Random();

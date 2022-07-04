@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.Objects;
 
 public class AddNote extends Fragment {
+
     private static final String ARG_CARD_DATA = "Param_Note";
     private TextInputEditText title;
     private TextInputEditText description;
@@ -77,7 +78,7 @@ public class AddNote extends Fragment {
         description = view.findViewById(R.id.inputDescription);
         datePicker = view.findViewById(R.id.inputDate);
     }
-
+    //редактирование данных
     public static AddNote newInstance(Note note) {
         AddNote fragment = new AddNote();
         Bundle args = new Bundle();
@@ -85,10 +86,9 @@ public class AddNote extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    //добавление новых данных
     public static AddNote newInstance() {
-        AddNote fragment = new AddNote();
-        return fragment;
+        return new AddNote();
     }
 
     @Override

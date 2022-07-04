@@ -1,6 +1,7 @@
 package com.gb.android.noteapp;
 
 public interface NoteSource {
+
     NoteSource init(NoteSourceResponse noteSourceResponse);
     Note getNote(int position);
     int size();

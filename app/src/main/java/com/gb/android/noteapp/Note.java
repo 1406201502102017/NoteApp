@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.util.Date;
 
 public class Note implements Parcelable {
+
     public String getId() {
         return id;
     }
@@ -57,7 +58,7 @@ public class Note implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Note> CREATOR = new Creator<Note>() {
+    public static final Creator<Note> CREATOR = new Creator<>() {
         @Override
         public Note createFromParcel(Parcel in) {
             return new Note(in);
@@ -99,8 +100,5 @@ public class Note implements Parcelable {
 
     public boolean isDone() {
         return done;
-    }
-
-    public void setChecked(boolean done) {
     }
 }
