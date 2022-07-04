@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Note App</string>
+    <string name="open_note_fragment">Будущая заметка</string>
+    <string name="show_notes_button">Show notes</string>
+    <string name="note_title">Note</string>
+    <string name="note_description">Note content</string>
+
+    <string name="search_here">Search here....</string>
+    <string name="clear">clear</string>
+    <string name="no_data">no_data</string>
+    <string name="add_note">Add Note</string>
+    <string name="choose_color">Choose Color</string>
+    <string name="some_text">Lorem Ipsum is simply dummy text of
+        the printing and typesetting industry. Lorem Ipsum has been
+        the industry\'s standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled
+        it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged.
+    </string>
+    <string name="edited_on">Edited on: %1$s</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="text_activity_main">Empty ! Add New Notes using " + "</string>
+    <string name="menu_item">ADD</string>
+    <string name="text_add_note">Name</string>
+    <string name="hint_enter_title">Note Title</string>
+    <string name="hint_enter_details">Note Details</string>
+
+    <string name="title1">title!</string>
+    <string name="title2">title2</string>
+    <string name="title3">title3</string>
+    <string name="title4">title4</string>
+    <string name="title5">title5</string>
+    <string name="title6">title6</string>
+    <string name="title7">title7</string>
+    <string name="description1">Сказочный зеленый лес</string>
+    <string name="description2">Одинокая гора</string>
+    <string name="description3">Бурный водопад в лесу</string>
+    <string name="description4">Красивое сумрачное небо</string>
+    <string name="description5">Мистический туман</string>
+    <string name="description6">Солнечная поляна</string>
+    <string name="description7">Красная осень</string>
+    <string name="add">Добавить заметку</string>
+    <string name="text_clear">УДАЛИТЬ ЗАМЕТКУ</string>
+    <string name="delete">Удалить</string>
+    <string name="update">Изменить</string>
+    <string name="hint_title">Заголовок</string>
+    <string name="hint_text">Текст заметки</string>
+    <string name="note_item_title">Title</string>
+    <string name="note_item_description">Description</string>
+
+</resources>
